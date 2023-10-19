@@ -13,6 +13,7 @@ RUN npm install
 # Due to above error below line was added . ABove error during running>  docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 6c45758f5ccc
 RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
 
+RUN chmod +x node_modules/.bin/react-scripts
 # this is use to copy the source code from curret working dir to /app folder
 COPY . .
 
