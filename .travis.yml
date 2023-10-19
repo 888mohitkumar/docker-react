@@ -19,4 +19,4 @@ before_install:
 # -- --coverage is used becase npm run test does not exists from dokcer contailer. so here it will make it exit. 
 
 script:
-  - docker run 888mohitkumar/docker-react npm run test -- --coverage
+  - docker run -e CI=true 888mohitkumar/docker-react npm run test
