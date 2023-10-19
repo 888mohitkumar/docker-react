@@ -6,8 +6,8 @@ WORKDIR '/app'
 COPY package.json .
 
 
-RUN npm install
-
+#RUN npm install
+RUN npm install react-scripts --save
 #[eslint] EACCES: permission denied, mkdir '/app/node_modules/.cache'
 #ERROR in [eslint] EACCES: permission denied, mkdir '/app/node_modules/.cache'
 # Due to above error below line was added . ABove error during running>  docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 6c45758f5ccc
