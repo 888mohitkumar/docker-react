@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 services:
-  react-app:
+  web:
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - "3000:3000" # here - represents an array.
+      - "3000:3000"
     volumes:
       - /app/node_modules
       - .:/app
@@ -16,4 +16,4 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
-    command: ["npm", "run", "test"]  #overide the default command in docker file     
+    command: ["npm", "run", "test"]

@@ -1,36 +1,23 @@
-# here we are are doing following things.
-# 1. telling travis to create docker service in running mode.
-# 2. Creating image.
-# 3. Running test suite.
-
-# super user permission required to execute this build.
 sudo: required
+language: generic
 
-# We need a copy to docker in running mode.
 services:
   - docker
 
-# Set of commands that run before our test runs or before deploy our project.
-# here tag name is used because we want to use generated docker image name  
 before_install:
   - docker build -t 888mohitkumar/docker-react -f Dockerfile.dev .
-  
-# here we are running nmp run test to execute the test case in runing container. we are overriding the default command here.
-# -- --coverage is used becase npm run test does not exists from dokcer contailer. so here it will make it exit. 
 
 script:
-  - docker run -e CI=true 888mohitkumar/docker-react ls
-  
+  - docker run -e CI=true 888mohitkumar/docker-react npm run test
+
 deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
-  app: "docker-react" #app name given during creating elasticbeanstalk in aws.
-  env: "Docker-react-env" #name of env define here.
-  bucket_name: "elasticbeanstalk-ap-south-1-932627579042" #all the file in git hub repository will be zip and putted in s3 bucket.
-  bucket_path: "docker-react" # this same as application name and will be created automatically 
+  app: "docker-react"
+  env: "Docker-react-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-932627579042"
+  bucket_path: "docker-react"
   on:
-    branch: main # on branch main when code merges then only deploy. Not on feature branch code push
+    branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
- #   secure: "$AWS_SECRET_KEY"
-  
