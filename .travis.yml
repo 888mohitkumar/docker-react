@@ -13,8 +13,7 @@ services:
 # Set of commands that run before our test runs or before deploy our project.
 # here tag name is used because we want to use generated docker image name  
 before_install:
-#  - docker build -t 888mohitkumar/docker-react -f Dockerfile.dev .
-  - docker build -t 888mohitkumar/docker-react -f Dockerfile .
+  - docker build -t 888mohitkumar/docker-react -f Dockerfile.dev .
   
 # here we are running nmp run test to execute the test case in runing container. we are overriding the default command here.
 # -- --coverage is used becase npm run test does not exists from dokcer contailer. so here it will make it exit. 
