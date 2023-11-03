@@ -25,7 +25,8 @@ RUN npm run build
 #Below we are starting the new phase ....
 
 FROM nginx
-
+#informs Docker that the container listens on the specified network ports at runtime
+EXPOSE 80 
 # copy from builder phase . copy from "/app/build" location from above phase to location /usr/share/nginx/html in nginx.
 # in above pahse source code was build and was put on /app/build location and here we are copying that build folder structure in nginx floder structure.
 COPY --from=builder /app/build /usr/share/nginx/html

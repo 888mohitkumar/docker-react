@@ -24,10 +24,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
-  app: "docker" #app name given during creating elasticbeanstalk in aws.
-  env: "Docker-env" #name of env define here.
-  bucket_name: "elasticbeanstalk-ap-south-1-139372003506"
-  bucket_path: "docker" # this same as application name and will be created automatically 
+  app: "docker-react" #app name given during creating elasticbeanstalk in aws.
+  env: "Docker-react-env" #name of env define here.
+  bucket_name: "elasticbeanstalk-ap-south-1-932627579042" #all the file in git hub repository will be zip and putted in s3 bucket.
+  bucket_path: "docker-react" # this same as application name and will be created automatically 
   on:
     branch: main # on branch main when code merges then only deploy. Not on feature branch code push
   access_key_id: $AWS_ACCESS_KEY
