@@ -31,6 +31,6 @@ deploy:
   on:
     branch: main # on branch main when code merges then only deploy. Not on feature branch code push
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: "$AWS_SECRET_KEY"
+  secret_access_key: $AWS_SECRET_KEY
  #   secure: "$AWS_SECRET_KEY"
   
